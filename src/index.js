@@ -1,10 +1,7 @@
-function click () {
+function clickHandler () {
     alert('Achievement unlocked')
 }
 
-// document.getElementsByTagName('button')
-// document.querySelectorAll()
-// document.getElementById('first-but')
+const btn = document.querySelector('#btnthree');
 
-const collection = document.getElementsByTagName('button')
-console.log(collection)
+btn.addEventListener('click', clickHandler)
