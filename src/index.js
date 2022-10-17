@@ -1,15 +1,28 @@
-function clickHandler () {
-    console.log('Click on button')
+// function clickHandler () {
+//     console.log('Click on button')
+// }
+
+// const btn = document.querySelector('#btnthree');
+
+// btn.addEventListener('click', clickHandler)
+
+// function logger() {
+//     prompt('How old are you?')
+// }
+
+// btn.addEventListener('click', logger)
+
+// btn.removeEventListener('click', logger)
+
+function logger (event) {
+    console.log(event.target)
+    const currentBut = event.target;
+    currentBut.disabled = true;
+    currentBut.removeEventListener('click', logger)
 }
 
-const btn = document.querySelector('#btnthree');
+const btncollection = document.querySelectorAll('button');
 
-btn.addEventListener('click', clickHandler)
-
-function logger() {
-    prompt('How old are you?')
+for (const btn of btncollection) {
+    btn.addEventListener('click', logger)
 }
-
-btn.addEventListener('click', logger)
-
-btn.removeEventListener('click', logger)
