@@ -70,8 +70,8 @@
 const div = document.querySelector('.field');
 
 div.addEventListener('click', (event) => {
-    console.log(event.clientX, event.clientY);
-    const section = document.querySelector('#coordinate');
-    section.innerText = `X: ${event.clientX} \n
-    Y: ${event.clientY}`;
+    const box = document.querySelector('#box');
+    box.style.left = `${event.clientX - (box.offsetWidth/2)}px`;
+    box.style.top = `${event.clientY- (box.offsetHeight/2)}px`;
 })
+

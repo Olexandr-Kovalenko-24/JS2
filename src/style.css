@@ -1,18 +1,20 @@
 body {
-    display: flex;
+    margin: 0;
 }
 
 .field {
-    width: 200px;
-    height: 200px;
+    width: 500px;
+    height: 500px;
     border: 1px solid brown;
     background-color: bisque;
+    position: relative;
 }
 
-#coordinate {
+#box {
     width: 100px;
     height: 100px;
     border: 1px solid brown;
     color: red;
-    background-color:beige;
+    background-color: green;
+    position: absolute;
 }
