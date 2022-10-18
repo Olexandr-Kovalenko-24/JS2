@@ -44,15 +44,34 @@
 
 
 
-document.addEventListener('click', clickHandler);
-document.body.addEventListener('click', clickHandler);
+// document.addEventListener('click', clickHandler);
+// document.body.addEventListener('click', clickHandler);
 
-const section = document.querySelector('#parent');
-parent.addEventListener('click', clickHandler);
+// const section = document.querySelector('#parent');
+// parent.addEventListener('click', clickHandler);
 
-const btn = document.querySelector('button');
-btn.addEventListener('click', clickHandler);
+// const btn = document.querySelector('button');
+// btn.addEventListener('click', clickHandler);
 
-function clickHandler(event){
-    console.dir(event.currentTarget)
-}
+// function clickHandler(event){
+//     console.dir(event.currentTarget)
+// }
+
+
+
+// const form = document.querySelector('form')
+
+// form.addEventListener('submit', (event) => {
+//     event.preventDefault();
+//     console.log(event);
+// })
+
+
+const div = document.querySelector('.field');
+
+div.addEventListener('click', (event) => {
+    console.log(event.clientX, event.clientY);
+    const section = document.querySelector('#coordinate');
+    section.innerText = `X: ${event.clientX} \n
+    Y: ${event.clientY}`;
+})
