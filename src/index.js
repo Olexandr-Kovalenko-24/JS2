@@ -14,15 +14,45 @@
 
 // btn.removeEventListener('click', logger)
 
-function logger (event) {
-    console.log(event.target)
-    const currentBut = event.target;
-    currentBut.disabled = true;
-    currentBut.removeEventListener('click', logger)
-}
+// function logger(event) {
+//     console.log(event.target)
+//     const currentBut = event.target;
+//     currentBut.disabled = true;
+//     currentBut.removeEventListener('click', logger)
+// }
 
-const btncollection = document.querySelectorAll('button');
+// const btncollection = document.querySelectorAll('button');
 
-for (const btn of btncollection) {
-    btn.addEventListener('click', logger)
+// for (const btn of btncollection) {
+//     btn.addEventListener('click', logger)
+// }
+
+
+
+
+
+// document.addEventListener('keydown', handler)
+// document.addEventListener('click', handler)
+
+// function handler(event) {
+//     console.log(event)
+// }
+
+// const ev = new PointerEvent('click')
+// document.dispatchEvent(ev);
+
+
+
+
+document.addEventListener('click', clickHandler);
+document.body.addEventListener('click', clickHandler);
+
+const section = document.querySelector('#parent');
+parent.addEventListener('click', clickHandler);
+
+const btn = document.querySelector('button');
+btn.addEventListener('click', clickHandler);
+
+function clickHandler(event){
+    console.dir(event.currentTarget)
 }
