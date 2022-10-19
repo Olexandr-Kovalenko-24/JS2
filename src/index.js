@@ -1,140 +1,30 @@
-// function clickHandler () {
-//     console.log('Click on button')
-// }
+const DB = [
+    './images/beautiful-scenery-road-forest-with-lot-colorful-autumn-trees_181624-30942.jpg',
+    './images/images.jfif',
+    './images/Zugpsitze_mountain.jpg',
+    './images/завантаження (1).jfif',
+    './images/завантаження.jfif',
+];
 
-// const btn = document.querySelector('#btnthree');
+const img = document.querySelector('.img');
 
-// btn.addEventListener('click', clickHandler)
+const [prevBtn, nextBtn] = document.querySelectorAll('.slider-wrapper > .btn')
 
-// function logger() {
-//     prompt('How old are you?')
-// }
+const slider = new Slider(DB);
 
-// btn.addEventListener('click', logger)
-
-// btn.removeEventListener('click', logger)
-
-// function logger(event) {
-//     console.log(event.target)
-//     const currentBut = event.target;
-//     currentBut.disabled = true;
-//     currentBut.removeEventListener('click', logger)
-// }
-
-// const btncollection = document.querySelectorAll('button');
-
-// for (const btn of btncollection) {
-//     btn.addEventListener('click', logger)
-// }
-
-
-
-
-
-// document.addEventListener('keydown', handler)
-// document.addEventListener('click', handler)
-
-// function handler(event) {
-//     console.log(event)
-// }
-
-// const ev = new PointerEvent('click')
-// document.dispatchEvent(ev);
-
-
-
-
-// document.addEventListener('click', clickHandler);
-// document.body.addEventListener('click', clickHandler);
-
-// const section = document.querySelector('#parent');
-// parent.addEventListener('click', clickHandler);
-
-// const btn = document.querySelector('button');
-// btn.addEventListener('click', clickHandler);
-
-// function clickHandler(event){
-//     console.dir(event.currentTarget)
-// }
-
-
-
-// const form = document.querySelector('form')
-
-// form.addEventListener('submit', (event) => {
-//     event.preventDefault();
-//     console.log(event);
-// })
-
-
-// const div = document.querySelector('.field');
-
-// div.addEventListener('click', clickHandler, true)
-
-// function clickHandler(event) {
-//     event.stopPropagation();
-//     if(event.currentTarget === event.target){
-//         const box = event.target.children.box;
-//         // const box = document.querySelector('#box');
-//         box.style.left = `${event.clientX - (box.offsetWidth/2)}px`;
-//         box.style.top = `${event.clientY- (box.offsetHeight/2)}px`;
-//     }
-// }
-
-
-
-const div2 = document.querySelector('.field');
-const box = document.querySelector('#box');
-
-
-function getRandomCoordinats(limits) {
-    box.style.left = `${Math.floor(Math.random() * limits.offsetWidth)}px`;
-    box.style.top = `${Math.floor(Math.random() * limits.offsetHeight)}px`;
+function updateView() {
+    img.setAttribute('src', slider.currentSlide);
 }
 
-document.addEventListener('mousemove', ()=>{
-    getRandomCoordinats(div2)
-})
-
-div2.addEventListener('click', clickHandler)
-
-let counter = 0;
-function clickHandler(event){
-    if (event.target === box){
-        ++counter;
-    } else {--counter}
-    console.log(counter);
-}
-
-
-
-
-
-const div3 = document.querySelector('.field');
-
-let scoreCount = 0;
-updateScore();
-
-div3.addEventListener('click', clickHandler2, true)
-
-function clickHandler2 (event) {
-    const {target, currentTarget} = event;
-    const box = currentTarget.children.box;
-    if (currentTarget === target){
-        updateScore(-1);
-    } else {
-        updateScore(1);
+const buttonHandler = (direction = 'next') => {
+    return function () {
+        slider.currentIndex = slider[direction]
+        updateView();
     }
-
-    box.style.left = `${getRandomCoordinates(field.offsetWidth)}px`;
-    box.style.top = `${getRandomCoordinates(field.offsetHeight)}px`;
 }
 
-function updateScore(step = 0) {
-    scoreCount += step;
-    scoreCount.textContent = scoreCount + step;
-}
+prevBtn.addEventListener('click', buttonHandler('prev'));
 
-function getRandomCoordinates(max){
-    return Math.floor(Math.random() * max);
-}
+nextBtn.addEventListener('click', buttonHandler('next'));
+
+updateView();
