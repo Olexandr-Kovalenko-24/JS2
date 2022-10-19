@@ -88,8 +88,8 @@ const box = document.querySelector('#box');
 
 
 function getRandomCoordinats(limits) {
-    box.style.left = `${Math.random() * limits.offsetWidth}px`;
-    box.style.top = `${Math.random() * limits.offsetHeight}px`;
+    box.style.left = `${Math.floor(Math.random() * limits.offsetWidth)}px`;
+    box.style.top = `${Math.floor(Math.random() * limits.offsetHeight)}px`;
 }
 
 document.addEventListener('mousemove', ()=>{
