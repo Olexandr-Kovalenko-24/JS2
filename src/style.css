@@ -11,10 +11,11 @@ body {
 }
 
 #box {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border: 1px solid brown;
     color: red;
     background-color: green;
     position: absolute;
+    transition: all 0.7s ease;
 }

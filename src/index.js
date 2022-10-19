@@ -67,11 +67,43 @@
 // })
 
 
-const div = document.querySelector('.field');
+// const div = document.querySelector('.field');
 
-div.addEventListener('click', (event) => {
-    const box = document.querySelector('#box');
-    box.style.left = `${event.clientX - (box.offsetWidth/2)}px`;
-    box.style.top = `${event.clientY- (box.offsetHeight/2)}px`;
+// div.addEventListener('click', clickHandler, true)
+
+// function clickHandler(event) {
+//     event.stopPropagation();
+//     if(event.currentTarget === event.target){
+//         const box = event.target.children.box;
+//         // const box = document.querySelector('#box');
+//         box.style.left = `${event.clientX - (box.offsetWidth/2)}px`;
+//         box.style.top = `${event.clientY- (box.offsetHeight/2)}px`;
+//     }
+// }
+
+
+
+const div2 = document.querySelector('.field');
+const box = document.querySelector('#box');
+
+div2.addEventListener('click', clickHandler)
+
+function getRandomCoordinats(limits) {
+        box.style.left = `${Math.random() * limits.offsetWidth}px`;
+        box.style.top = `${Math.random() * limits.offsetHeight}px`;
+}
+
+getRandomCoordinats(div2)
+
+let counter = 0;
+
+function clickHandler(event){
+    if (event.target === box){
+        ++counter;
+    } else {--counter}
+    console.log(counter);
+}
+
+document.addEventListener('mousemove', ()=>{
+    getRandomCoordinats(div2)
 })
-
