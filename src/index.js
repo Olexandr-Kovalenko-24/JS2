@@ -108,3 +108,33 @@ function clickHandler(event){
 
 
 
+
+
+const div3 = document.querySelector('.field');
+
+let scoreCount = 0;
+updateScore();
+
+div3.addEventListener('click', clickHandler2, true)
+
+function clickHandler2 (event) {
+    const {target, currentTarget} = event;
+    const box = currentTarget.children.box;
+    if (currentTarget === target){
+        updateScore(-1);
+    } else {
+        updateScore(1);
+    }
+
+    box.style.left = `${getRandomCoordinates(field.offsetWidth)}px`;
+    box.style.top = `${getRandomCoordinates(field.offsetHeight)}px`;
+}
+
+function updateScore(step = 0) {
+    scoreCount += step;
+    scoreCount.textContent = scoreCount + step;
+}
+
+function getRandomCoordinates(max){
+    return Math.floor(Math.random() * max);
+}
