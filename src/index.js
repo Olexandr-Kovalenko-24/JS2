@@ -86,17 +86,19 @@
 const div2 = document.querySelector('.field');
 const box = document.querySelector('#box');
 
-div2.addEventListener('click', clickHandler)
 
 function getRandomCoordinats(limits) {
-        box.style.left = `${Math.random() * limits.offsetWidth}px`;
-        box.style.top = `${Math.random() * limits.offsetHeight}px`;
+    box.style.left = `${Math.random() * limits.offsetWidth}px`;
+    box.style.top = `${Math.random() * limits.offsetHeight}px`;
 }
 
-getRandomCoordinats(div2)
+document.addEventListener('mousemove', ()=>{
+    getRandomCoordinats(div2)
+})
+
+div2.addEventListener('click', clickHandler)
 
 let counter = 0;
-
 function clickHandler(event){
     if (event.target === box){
         ++counter;
@@ -104,6 +106,5 @@ function clickHandler(event){
     console.log(counter);
 }
 
-document.addEventListener('mousemove', ()=>{
-    getRandomCoordinats(div2)
-})
+
+
