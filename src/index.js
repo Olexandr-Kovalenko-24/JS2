@@ -38,11 +38,22 @@
 //     img.setAttribute('src', dataset.src)
 // }
 
+// const form = document.querySelector('form');
+
+// form.addEventListener('submit', submitHandler);
+
+// function submitHandler (event) {
+//     event.preventDefault();
+//     console.dir(event.target.email.value);
+// }
+
+
 const form = document.querySelector('form');
+const returnValue = document.querySelector('article');
 
 form.addEventListener('submit', submitHandler);
 
 function submitHandler (event) {
     event.preventDefault();
-    console.dir(event.target.email.value);
+    returnValue.innerText = (event.target.number.value) * 37;
 }
