@@ -21,4 +21,5 @@ form {
 
 #result {
     display: flex;
+    padding-top: 5px;
 }
