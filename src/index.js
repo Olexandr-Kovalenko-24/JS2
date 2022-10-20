@@ -62,15 +62,17 @@ form.addEventListener('submit', submitHandler);
 function submitHandler (event) {
     event.preventDefault();
     const currency = event.target.currency.value
-    returnValue.innerText = event.target.number.value * KOEFFICIENT[currency];
+    const amount = event.target.amount.value;
+    returnValue.innerText = amount * KOEFFICIENT[currency];
 }
 
 
 // function submitHandler (event) {
 //     event.preventDefault();
-//     event.target.number.value
-//     if(Number.isNaN(Number(event.target.number.value))){
+//     const {target: {returnValue: {value}}} = event;
+//     if(Number.isNaN(Number(value))){
 //         returnValue.innerText = 'Amount must be a number';
+//     } else {
+//         returnValue.innerText = value * KOEFFICIENT;
 //     }
-//     returnValue.innerText = (event.target.number.value) * 37;
 // }
