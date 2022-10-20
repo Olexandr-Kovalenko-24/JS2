@@ -7,3 +7,8 @@ body {
     height: 30px;
     font-size: 1.5em;
 }
+
+.img {
+    width: 200px;
+    height: 200px;
+}
