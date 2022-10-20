@@ -19,8 +19,6 @@ for (const btn of btnCollection) {
     btn.addEventListener('click', clickHandler);
 }
 
-function clickHandler() {
-    const parent = event.target.parentNode;
-    const color = event.target.textContent;
-    parent.style.backgroundColor = color;
+function clickHandler({target: {parentNode, textContent}}) {
+    parentNode.style.backgroundColor = textContent;
 }
