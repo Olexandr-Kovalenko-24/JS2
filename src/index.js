@@ -51,9 +51,26 @@
 const form = document.querySelector('form');
 const returnValue = document.querySelector('article');
 
+const KOEFFICIENT = {
+    USD: 36.6,
+    EUR: 35.76,
+    PLN: 7.47
+}
+
 form.addEventListener('submit', submitHandler);
 
 function submitHandler (event) {
     event.preventDefault();
-    returnValue.innerText = (event.target.number.value) * 37;
+    const currency = event.target.currency.value
+    returnValue.innerText = event.target.number.value * KOEFFICIENT[currency];
 }
+
+
+// function submitHandler (event) {
+//     event.preventDefault();
+//     event.target.number.value
+//     if(Number.isNaN(Number(event.target.number.value))){
+//         returnValue.innerText = 'Amount must be a number';
+//     }
+//     returnValue.innerText = (event.target.number.value) * 37;
+// }
