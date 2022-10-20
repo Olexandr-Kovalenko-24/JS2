@@ -25,15 +25,24 @@
 // }
 
 
-const btnCollection = document.querySelectorAll('button');
+// const btnCollection = document.querySelectorAll('button');
 
-for (const btn of btnCollection) {
-    btn.addEventListener('click', clickHandler);
-}
+// for (const btn of btnCollection) {
+//     btn.addEventListener('click', clickHandler);
+// }
 
-const img = document.querySelector('.img');
+// const img = document.querySelector('.img');
 
 
-function clickHandler({target: {dataset}}) {
-    img.setAttribute('src', dataset.src)
+// function clickHandler({target: {dataset}}) {
+//     img.setAttribute('src', dataset.src)
+// }
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', submitHandler);
+
+function submitHandler (event) {
+    event.preventDefault();
+    console.dir(event.target.email.value);
 }
