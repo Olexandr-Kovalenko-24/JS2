@@ -101,8 +101,8 @@ class Slider {
 const img = document.querySelector('.img');
 const fullName = document.querySelector('h1');
 const emailAdress = document.querySelector('p');
-const [first] = userDataBase;
-const {avatar, firstName, lastName, email} = first;
+// const [first] = userDataBase;
+// const {avatar, firstName, lastName, email} = first;
 
 
 const [prevBtn, nextBtn] = document.querySelectorAll('.btn')
