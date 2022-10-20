@@ -54,7 +54,8 @@ const returnValue = document.querySelector('article');
 const KOEFFICIENT = {
     USD: 36.6,
     EUR: 35.76,
-    PLN: 7.47
+    PLN: 7.47,
+    UAH: 1
 }
 
 form.addEventListener('submit', submitHandler);
@@ -62,8 +63,16 @@ form.addEventListener('submit', submitHandler);
 function submitHandler (event) {
     event.preventDefault();
     const currency = event.target.currency.value
+    const currencyOutput = event.target.currencyOutput.value
     const amount = event.target.amount.value;
-    returnValue.innerText = amount * KOEFFICIENT[currency];
+    if (KOEFFICIENT[currency] === KOEFFICIENT[currencyOutput]){
+        returnValue.innerText = amount
+    } else if (KOEFFICIENT[currency] > KOEFFICIENT[currencyOutput]) {
+        returnValue.innerText = (amount * KOEFFICIENT[currency]) / KOEFFICIENT[currencyOutput]
+    } else if (KOEFFICIENT[currency] < KOEFFICIENT[currencyOutput]){
+        returnValue.innerText = (amount * KOEFFICIENT[currency]) / KOEFFICIENT[currencyOutput]
+    }
+    // returnValue.innerText = (amount * KOEFFICIENT[currency])* KOEFFICIENT[currencyOutput];
 }
 
 
