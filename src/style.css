@@ -1,14 +1,24 @@
 body {
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: beige;
 }
 
-.btn {
-    width: 30px;
-    height: 30px;
-    font-size: 1.5em;
-}
-
-.img {
+.wrapper {
     width: 200px;
-    height: 200px;
+    border: 2px solid salmon;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+#result {
+    display: flex;
 }

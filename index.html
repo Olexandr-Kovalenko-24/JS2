@@ -11,10 +11,11 @@
 </head>
 
 <body>
-
+<section class="wrapper">
   <form>
-    <input type="text" name="amount" />
-    <select name="currency">
+    <input type="text" name="amount" placeholder="Amount of cash" />
+    
+    <select name="currencyInput">
         <option>USD</option>
         <option>EUR</option>
         <option>PLN</option>
@@ -27,10 +28,12 @@
     </select>
     <input type="submit" value="Submit" />
   </form>
+  <span id="result"> Your result is:  
   <article>
     0
   </article>
-
+  </span>
+</section>
 </body>
 
 </html>

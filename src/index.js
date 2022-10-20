@@ -60,20 +60,36 @@ const KOEFFICIENT = {
 
 form.addEventListener('submit', submitHandler);
 
+
 function submitHandler (event) {
     event.preventDefault();
-    const currency = event.target.currency.value
-    const currencyOutput = event.target.currencyOutput.value
-    const amount = event.target.amount.value;
-    if (KOEFFICIENT[currency] === KOEFFICIENT[currencyOutput]){
-        returnValue.innerText = amount
-    } else if (KOEFFICIENT[currency] > KOEFFICIENT[currencyOutput]) {
-        returnValue.innerText = (amount * KOEFFICIENT[currency]) / KOEFFICIENT[currencyOutput]
-    } else if (KOEFFICIENT[currency] < KOEFFICIENT[currencyOutput]){
-        returnValue.innerText = (amount * KOEFFICIENT[currency]) / KOEFFICIENT[currencyOutput]
+    const {target: {amount: {value: amount},
+            currencyInput: {value: currencyInput},
+            currencyOutput: {value: currencyOutput}}} = event;
+    if(Number.isNaN(Number(amount))){
+        returnValue.innerText = 'Amount must be a number';
+    } else {
+        const res = amount * KOEFFICIENT[currencyInput] / KOEFFICIENT[currencyOutput]
+        returnValue.innerText = res.toFixed(2);
     }
-    // returnValue.innerText = (amount * KOEFFICIENT[currency])* KOEFFICIENT[currencyOutput];
 }
+
+
+// function submitHandler (event) {
+//     event.preventDefault();
+//     const currency = event.target.currency.value
+//     const currencyOutput = event.target.currencyOutput.value
+//     const amount = event.target.amount.value;
+//     if (KOEFFICIENT[currency] === KOEFFICIENT[currencyOutput]){
+//         returnValue.innerText = amount
+//     } else if (KOEFFICIENT[currency] > KOEFFICIENT[currencyOutput]) {
+//         returnValue.innerText = (amount * KOEFFICIENT[currency]) / KOEFFICIENT[currencyOutput]
+//     } else if (KOEFFICIENT[currency] < KOEFFICIENT[currencyOutput]){
+//         returnValue.innerText = (amount * KOEFFICIENT[currency]) / KOEFFICIENT[currencyOutput]
+//     }
+// }
+
+
 
 
 // function submitHandler (event) {
