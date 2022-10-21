@@ -1,18 +1,35 @@
 const root = document.querySelector('#root');
-const lamp = document.createElement('div');
-const toggler = document.querySelector('.toggler');
-root.append(lamp);
-// square.style.width = '100px';
-// square.style.height = '100px';
+
+const article = document.createElement('article');
+const header = document.createElement('h1');
+const paragraph = document.createElement('p');
+
+article.textContent = 'Article';
+header.textContent = 'I`m header';
+article.append(header);
+article.append(paragraph);
+// header.append('Header');
+paragraph.textContent = 'i am text';
+
+root.append(article);
 
 
-lamp.classList.add('lamp-off', 'lamp')
+const array = [
+    './images/beautiful-scenery-road-forest-with-lot-colorful-autumn-trees_181624-30942.jpg',
+    './images/images.jfif',
+    './images/Zugpsitze_mountain.jpg',
+    './images/завантаження (1).jfif',
+    './images/завантаження.jfif',
+];
 
-// lamp.id = 'testID'
 
-toggler.addEventListener('click', toggle)
-
-function toggle(){
-    lamp.classList.toggle('lamp-off');
-    lamp.classList.toggle('lamp-on')
+function createImage(imgSrc){
+    const img = document.createElement('img');
+    img.setAttribute('src', imgSrc);
+    img.classList.add('img');
+    return img;
 }
+
+const imageArray = array.map(createImage);
+
+root.append(...imageArray);
